@@ -1,0 +1,8 @@
+{
+  "name": "Gathbandhan - Celestial Wedding Planner",
+  "description": "A comprehensive platform to discover vendors, plan your dream wedding with AI, and manage bookings seamlessly.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

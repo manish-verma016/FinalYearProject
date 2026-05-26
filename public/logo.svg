@@ -1,0 +1,17 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="95" fill="#0F172A"/>
+  <circle cx="100" cy="100" r="85" stroke="#D4AF37" stroke-width="2" stroke-dasharray="4 8"/>
+  <path d="M100 135C100 135 140 105 140 75C140 55 125 45 110 45C100 45 95 55 95 55C95 55 90 45 80 45C65 45 50 55 50 75C50 105 90 135 100 135Z" fill="white"/>
+  <g transform="translate(85, 65) scale(0.6)">
+    <path d="M10 40 Q 15 20 20 40 L 25 60 Q 30 70 20 70 L 10 70 Q 0 70 5 60 Z" fill="#0F172A"/>
+    <circle cx="15" cy="15" r="8" fill="#0F172A"/>
+  </g>
+  <g transform="translate(105, 65) scale(0.6)">
+    <path d="M10 40 Q 5 20 0 40 L -5 60 Q -10 70 0 70 L 15 70 Q 25 70 20 60 Z" fill="#0F172A"/>
+    <circle cx="5" cy="15" r="8" fill="#0F172A"/>
+  </g>
+  <path d="M100 10A90 90 0 0 1 190 100" stroke="#D4AF37" stroke-width="1"/>
+  <path d="M100 190A90 90 0 0 1 10 100" stroke="#D4AF37" stroke-width="1"/>
+  <path d="M10 100A90 90 0 0 1 100 10" stroke="#D4AF37" stroke-width="1"/>
+  <path d="M190 100A90 90 0 0 1 100 190" stroke="#D4AF37" stroke-width="1"/>
+</svg>

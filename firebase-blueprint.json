@@ -1,0 +1,223 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User account information and roles.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "vendor", "admin"] },
+        "budget": { "type": "number" },
+        "spent": { "type": "number" },
+        "favorites": { "type": "array", "items": { "type": "string" } },
+        "location": { "type": "string" },
+        "eventDate": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "Service": {
+      "title": "Wedding Service",
+      "description": "A service offered by a vendor.",
+      "type": "object",
+      "properties": {
+        "vendorId": { "type": "string" },
+        "vendorName": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "rating": { "type": "number" },
+        "reviewsCount": { "type": "number" },
+        "location": { "type": "string" },
+        "images": { "type": "array", "items": { "type": "string" } },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "experience": { "type": "number" },
+        "features": { "type": "array", "items": { "type": "string" } },
+        "verified": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["vendorId", "title", "category", "price", "status"]
+    },
+    "Booking": {
+      "title": "Service Booking",
+      "description": "A reservation for a wedding service.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "serviceId": { "type": "string" },
+        "vendorId": { "type": "string" },
+        "serviceTitle": { "type": "string" },
+        "vendorName": { "type": "string" },
+        "date": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "cancelled", "completed"] },
+        "paymentStatus": { "type": "string", "enum": ["unpaid", "partial", "paid"] },
+        "totalAmount": { "type": "number" },
+        "paidAmount": { "type": "number" },
+        "contactNumber": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "serviceId", "vendorId", "date", "status"]
+    },
+    "Itinerary": {
+      "title": "AI Wedding Itinerary",
+      "description": "AI-generated wedding plan.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "style": { "type": "string" },
+        "guestCount": { "type": "string" },
+        "budgetRange": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "content"]
+    },
+    "Guest": {
+      "title": "Wedding Guest",
+      "description": "A person invited to the wedding.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "status": { "type": "string", "enum": ["invited", "confirmed", "pending", "declined"] },
+        "side": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "status"]
+    },
+    "Message": {
+      "title": "Chat Message",
+      "description": "Communication between user and vendor.",
+      "type": "object",
+      "properties": {
+        "senderId": { "type": "string" },
+        "receiverId": { "type": "string" },
+        "text": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["senderId", "receiverId", "text"]
+    },
+    "Invitation": {
+      "title": "Digital Invitation",
+      "description": "Customized wedding invitations sent to guests.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "templateId": { "type": "string" },
+        "cardData": { "type": "object" },
+        "guestIds": { "type": "array", "items": { "type": "string" } },
+        "sentAt": { "type": "string", "format": "date-time" },
+        "status": { "type": "string" }
+      },
+      "required": ["userId", "templateId", "cardData", "guestIds"]
+    },
+    "AstroResult": {
+      "title": "Astrology Reading",
+      "description": "Saved celestial matching or muhurut data.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "type": { "type": "string", "enum": ["match", "muhurut"] },
+        "data": { "type": "object" },
+        "names": { "type": "object" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "type", "data"]
+    },
+    "Enquiry": {
+      "title": "Vendor Enquiry",
+      "description": "A message sent from a user to a vendor regarding services.",
+      "type": "object",
+      "properties": {
+        "vendorId": { "type": "string" },
+        "vendorName": { "type": "string" },
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "message": { "type": "string" },
+        "status": { "type": "string", "enum": ["new", "read"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["vendorId", "userId", "message", "status"]
+    },
+    "UserLike": {
+      "title": "User Like/Saved Item",
+      "description": "An item (inspiration, etc.) saved by a user.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "targetId": { "type": "string" },
+        "type": { "type": "string", "enum": ["inspiration"] },
+        "data": { "type": "object" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "targetId", "type"]
+    }
+  },
+  "firestore": {
+    "users": {
+      "schema": "User",
+      "description": "User profiles collection."
+    },
+    "services": {
+      "schema": "Service",
+      "description": "Available wedding services."
+    },
+    "bookings": {
+      "schema": "Booking",
+      "description": "System-wide bookings."
+    },
+    "itineraries": {
+      "schema": "Itinerary",
+      "description": "AI-generated plans for users."
+    },
+    "guests": {
+      "schema": "Guest",
+      "description": "Guest lists for weddings."
+    },
+    "invitations": {
+      "schema": "Invitation",
+      "description": "Sent digital invitations."
+    },
+    "astro_results": {
+      "schema": "AstroResult",
+      "description": "Archived celestial readings."
+    },
+    "enquiries": {
+      "schema": "Enquiry",
+      "description": "User enquiries to vendors."
+    },
+    "user_likes": {
+      "schema": "UserLike",
+      "description": "Inspirations and items saved by users."
+    },
+    "reviews": {
+      "schema": {
+        "title": "Vendor Review",
+        "description": "A review and rating left by a user for a vendor.",
+        "type": "object",
+        "properties": {
+          "vendorId": { "type": "string" },
+          "userId": { "type": "string" },
+          "userName": { "type": "string" },
+          "rating": { "type": "number" },
+          "comment": { "type": "string" },
+          "createdAt": { "type": "string", "format": "date-time" }
+        },
+        "required": ["vendorId", "userId", "rating", "comment"]
+      },
+      "description": "Reviews left for vendors."
+    },
+    "chats/{chatId}/messages": {
+      "schema": "Message",
+      "description": "Messages within a chat."
+    }
+  }
+}

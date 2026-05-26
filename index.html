@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gathbandhan | Celestial Wedding Planner</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      // Global resilience guard to handle and suppress benign Vite WebSocket HMR errors in sandbox environment
+      (function() {
+        const isBenignError = (msg) => {
+          if (!msg) return false;
+          const lower = String(msg).toLowerCase();
+          return lower.includes('websocket') || lower.includes('failed to connect') || lower.includes('hmr') || lower.includes('vite');
+        };
+
+        window.addEventListener('unhandledrejection', function (event) {
+          const reasonMsg = event.reason ? (event.reason.message || event.reason) : '';
+          if (isBenignError(reasonMsg)) {
+            console.info('Suppressing sandbox HMR connection error gracefully:', reasonMsg);
+            event.preventDefault();
+            event.stopPropagation();
+          }
+        }, true);
+
+        window.addEventListener('error', function (event) {
+          const errMsg = event.message || '';
+          if (isBenignError(errMsg) || isBenignError(event.filename)) {
+            console.info('Suppressing sandbox HMR network error gracefully:', errMsg);
+            event.preventDefault();
+            event.stopPropagation();
+          }
+        }, true);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
