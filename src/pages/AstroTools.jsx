@@ -13,7 +13,7 @@ import { useAuth } from '../lib/AuthContext';
 import { useLocation } from 'react-router-dom';
 import { generateAstroReading } from '../lib/astroService';
 import WeddingCalendar from '../components/WeddingCalendar';
-import { PRIMARY_VENUES } from './Venues';
+import { PRIMARY_VENUES } from '../data/venuesData';
 
 const PANCHANG_DATA = {
   tithi: 'Shukla Paksha Shashthi',

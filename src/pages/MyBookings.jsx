@@ -22,7 +22,7 @@ import { formatCurrency, formatDate, cn } from '../lib/utils';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
-import { PRIMARY_VENUES } from './Venues';
+import { PRIMARY_VENUES } from '../data/venuesData';
 
 function TabButton({ active, onClick, label, count }) {
   return (
